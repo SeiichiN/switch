@@ -55,4 +55,19 @@ img {
   width: 100px;
   height: 30px;
   padding: 5px;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
 }
+
+#hex-area {
+	display: flex;
+}
+
+.hex {
+	width: 450px;
+	font-size: 6em;
+	font-weight: bold;
+	text-align: center;
+}
+
