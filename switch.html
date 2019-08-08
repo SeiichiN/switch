@@ -1,33 +1,54 @@
 <!doctype html>
 <html lang="ja">
-	<head>
-		<meta charset="utf-8">
-		<title>Switch</title>
-		<link rel="stylesheet" href="sw.css">
-	</head>
-	<body>
-		<h1>Switch</h1>
-		<div id="sw">
-			<div id="sw8" class="switch" onclick="changeSw(this)">
-			</div>
-			<div id="sw7" class="switch" onclick="changeSw(this)">
-			</div>
-			<div id="sw6" class="switch" onclick="changeSw(this)">
-			</div>
-			<div id="sw5" class="switch" onclick="changeSw(this)">
-			</div>
-			<div id="sw4" class="switch" onclick="changeSw(this)">
-			</div>
-			<div id="sw3" class="switch" onclick="changeSw(this)">
-			</div>
-			<div id="sw2" class="switch" onclick="changeSw(this)">
-			</div>
-			<div id="sw1" class="switch" onclick="changeSw(this)">
-			</div>
-		</div>
-		<script src="switch.js"></script>
-	</body>
+  <head>
+	<meta charset="utf-8">
+	<title>Switch</title>
+	<link rel="stylesheet" href="sw.css">
+  </head>
+  <body>
+	<h1>Switch</h1>
+    <div id="switch-area">
+	  <div id="sw">
+        <div id="name">
+          <div id="name-off">OFF</div>
+          <div id="name-on">ON</div>
+        </div>
+        <div id="sw-L">
+		  <div id="sw8" class="switch" onclick="changeSw(this)">
+		  </div>
+		  <div id="sw7" class="switch" onclick="changeSw(this)">
+		  </div>
+		  <div id="sw6" class="switch" onclick="changeSw(this)">
+		  </div>
+		  <div id="sw5" class="switch" onclick="changeSw(this)">
+		  </div>
+        </div>
+        <div id="sw-R">
+		  <div id="sw4" class="switch" onclick="changeSw(this)">
+		  </div>
+		  <div id="sw3" class="switch" onclick="changeSw(this)">
+		  </div>
+		  <div id="sw2" class="switch" onclick="changeSw(this)">
+		  </div>
+		  <div id="sw1" class="switch" onclick="changeSw(this)">
+		  </div>
+        </div>
+	  </div>
+      <div id="bit-area">
+        <div id="nothing"></div>
+        <div class="bit" id="bit8"></div>
+        <div class="bit" id="bit7"></div>
+        <div class="bit" id="bit6"></div>
+        <div class="bit" id="bit5"></div>
+        <div class="bit" id="bit4"></div>
+        <div class="bit" id="bit3"></div>
+        <div class="bit" id="bit2"></div>
+        <div class="bit" id="bit1"></div>
+      </div>
+    </div>
+	<script src="switch.js"></script>
+  </body>
 </html>
 
 
-	
+

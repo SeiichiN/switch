@@ -8,9 +8,51 @@ img {
 	display: flex;
 }
 
+#sw-L,
+#sw-R {
+  display: flex;
+  border: solid 6px darkgray;
+}
+
+
 .switch {
 	width: 100px;
 	height: 100px;
-	border: solid 3px gray;
+  border: solid 3px gray;
+  cursor: pointer;
 }
 
+#name {
+  position: relative;
+  width: 50px;
+  height: 120px;
+}
+
+#name-off,
+#name-on {
+  position: absolute;
+}
+
+#name-off {
+  top: 10px;
+  right: 10px;
+}
+
+#name-on {
+  bottom: 10px;
+  right: 10px;
+}
+
+#bit-area {
+  display: flex;
+}
+
+#nothing {
+  width: 50px;
+}
+
+.bit {
+  width: 100px;
+  height: 30px;
+  padding: 5px;
+}
