@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>Switch</title>
+		<link rel="stylesheet" href="sw.css">
+	</head>
+	<body>
+		<h1>Switch</h1>
+		<div id="sw">
+			<div id="sw8" class="switch">
+			</div>
+			<div id="sw7" class="switch">
+			</div>
+			<div id="sw6" class="switch">
+			</div>
+			<div id="sw5" class="switch">
+			</div>
+			<div id="sw4" class="switch">
+			</div>
+			<div id="sw3" class="switch">
+			</div>
+			<div id="sw2" class="switch">
+			</div>
+			<div id="sw1" class="switch">
+			</div>
+		</div>
+	<script>
+		var setSw = function () {
+			var sw = document.getElementsByClassName('switch');
+			for (var i = 0; i < sw.length; i++) {
+				sw[i].innerHTML = '<img src="switch_off.png" alt="">';
+			}
+		};
+window.onload = function () {
+	setSw();
+};
+	</script>
+	</body>
+</html>
+
+
+	
