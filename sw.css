@@ -4,6 +4,11 @@ img {
 	max-width: 100%;
 }
 
+#wrap {
+  width: 960px;
+  margin: 0 auto;
+}
+
 #sw {
 	display: flex;
 }
@@ -24,7 +29,7 @@ img {
 
 #name {
   position: relative;
-  width: 50px;
+  width: 70px;
   height: 120px;
 }
 
@@ -43,17 +48,18 @@ img {
   right: 10px;
 }
 
-#bit-area {
+#bit-area-inner {
   display: flex;
 }
 
-#nothing {
-  width: 50px;
+#bit-title {
+  width: 70px;
+  line-height: 60px;
+  text-align: right;
 }
 
 .bit {
   width: 100px;
-  height: 30px;
   padding: 5px;
   font-size: 2em;
   font-weight: bold;
@@ -64,10 +70,21 @@ img {
 	display: flex;
 }
 
+#hex-title {
+  width: 70px;
+  line-height: 144px;
+  text-align: right;
+}
+
 .hex {
 	width: 450px;
 	font-size: 6em;
 	font-weight: bold;
 	text-align: center;
+}
+
+#showBitBtn {
+  width: 100px;
+  height: 50px;
 }
 

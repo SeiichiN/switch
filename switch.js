@@ -2,8 +2,10 @@
 //
 var sw = document.getElementsByClassName('switch');
 var bitno = document.getElementsByClassName('bit');
+var bitArea = document.getElementById('bit-area');
 var hexnoL = document.getElementById('hexL');
 var hexnoR = document.getElementById('hexR');
+var showBitBtn = document.getElementById('showBitBtn');
 
 var setSw = function () {
 	for (var i = 0; i < sw.length; i++) {
@@ -48,6 +50,28 @@ var makeHex = function () {
 	hexnoR.innerHTML = strHexR;
 };
 
+var setShowBitBtn = function () {
+  showBitBtn.innerHTML = '2進数を表示しない';
+  showBitBtn.onoff = 'on';
+  bitArea.style.display = 'block';
+};
+
+var delBitBtn = function () {
+  showBitBtn.innerHTML = '2進数を表示する';
+  var bitArea = document.getElementById('bit-area');
+  bitArea.style.display = 'none';
+  showBitBtn.onoff = 'off';
+};
+
+var toggleBitBtn = function () {
+  if (showBitBtn.onoff === 'on') {
+	delBitBtn();
+  } else {
+	setShowBitBtn();
+  }
+};
+
 window.onload = function () {
 	setSw();
+  setShowBitBtn();
 };
