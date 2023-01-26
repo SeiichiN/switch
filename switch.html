@@ -66,26 +66,34 @@
 		  </div>
 		</div>
 		<div id="hex-area">
-		  <div id="hex-title">16進数</div>
-		  <div class="hex" id="hexL"></div>
-		  <div class="hex" id="hexR"></div>
+          <div id="hex-area-inner">
+		    <div id="hex-title">16進数</div>
+		    <div class="hex" id="hexL"></div>
+		    <div class="hex" id="hexR"></div>
+          </div>
 		</div>
         <div id="dec-area">
           <div id="dec-area-inner">
             <div id="dec-title">10進数</div>
             <div class="dec" id="dec"></div>
           </div>
+        </div>
+        <div id="minus-area">
           <div id="dec-area-minus">
             <div id="dec-minus-title">-10進数</div>
             <div class="dec" id="dec-minus"></div>
           </div>
         </div>
 	  </div>
-	  <button id="showBitBtn" onclick="toggleBitBtn()"></button>
-      <button id="showDecBtn" onclick="toggleDecBtn()"></button>
+      <div class="btn-area">
+	    <button id="showBitBtn" onclick="toggleBitBtn()"></button>
+        <button id="showHexBtn" onclick="toggleHexBtn()"></button>
+        <button id="showDecBtn" onclick="toggleDecBtn()"></button>
+        <button id="showMinusBtn" onclick="toggleMinusBtn()"></button>
+      </div>
 	</div>
 	<script src="switch.js"></script>
   </body>
 </html>
 
-<!-- 修正時刻: Thu 2023/01/26 19:22:512 -->
+<!-- 修正時刻: Fri 2023/01/27 05:09:242 -->

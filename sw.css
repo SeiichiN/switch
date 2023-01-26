@@ -96,7 +96,7 @@ img {
   text-align: center;
 }
 
-#hex-area {
+#hex-area-inner {
 	display: flex;
 }
 
@@ -138,7 +138,10 @@ img {
   text-align: right;
 }
 
-#showBitBtn {
+#showBitBtn,
+#showDecBtn,
+#showHexBtn,
+#showMinusBtn {
   display: block;
   width: 100px;
   height: 50px;
@@ -146,13 +149,12 @@ img {
   margin-bottom: 10px;
 }
 
-#showDecBtn {
-  display: block;
-  width: 100px;
-  height: 50px;
-  border-width: 5px;
+.btn-area {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
 }
 
 
 
-/* 修正時刻: Thu 2023/01/26 19:22:512 */
+/* 修正時刻: Fri 2023/01/27 05:09:242 */

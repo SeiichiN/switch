@@ -6,11 +6,14 @@ var bitno = document.getElementsByClassName('bit');
 var bitArea = document.getElementById('bit-area');
 var hexnoL = document.getElementById('hexL');
 var hexnoR = document.getElementById('hexR');
+var hexArea = document.getElementById('hex-area');
 var decno = document.getElementById('dec');
+var minusArea = document.getElementById('minus-area');
 var decMinus = document.getElementById('dec-minus');
 var decArea = document.getElementById('dec-area');
 var showBitBtn = document.getElementById('showBitBtn');
 var showDecBtn = document.getElementById('showDecBtn');
+var showHexBtn = document.getElementById('showHexBtn');
 
 var setSw = function () {
 	for (var i = 0; i < sw.length; i++) {
@@ -145,10 +148,54 @@ var toggleDecBtn = function () {
   }
 };
 
+var setShowHexBtn = function () {
+  showHexBtn.innerHTML = '16進数を表示しない';
+  showHexBtn.onoff = 'on';
+  hexArea.style.display = 'block';
+}
+
+var delHexBtn = function () {
+  showHexBtn.innerHTML = '16進数を表示する';
+  hexArea.style.display = 'none';
+  showHexBtn.onoff = 'off';
+}
+
+var toggleHexBtn = function () {
+  if (showHexBtn.onoff === 'on') {
+    delHexBtn();
+  } else {
+    setShowHexBtn();
+  }
+}
+
+var setShowMinusBtn = function () {
+  showMinusBtn.innerHTML = 'マイナスを表示しない';
+  showMinusBtn.onoff = 'on';
+  minusArea.style.display = 'block';
+}
+
+var delMinusBtn = function () {
+  showMinusBtn.innerHTML = 'マイナスを表示する';
+  minusArea.style.display = 'none';
+  showMinusBtn.onoff = 'off';
+}
+
+var toggleMinusBtn = function () {
+  if (showMinusBtn.onoff === 'on') {
+    delMinusBtn();
+  } else {
+    setShowMinusBtn();
+  }
+}
+
+
+
 window.onload = function () {
-	setSw();
+  setSw();
   setShowBitBtn();
+  setShowHexBtn();
   setShowDecBtn();
+  setShowMinusBtn();
 };
 
-// 修正時刻: Thu 2023/01/26 19:22:512
+// 修正時刻: Fri 2023/01/27 05:09:242
