@@ -27,6 +27,36 @@ img {
   cursor: pointer;
 }
 
+#space {
+  width: 70px;
+}
+
+#lamp {
+  display: flex;
+  margin-left: 70px;
+  margin-bottom: 10px;
+}
+
+#lamp-L,
+#lamp-R {
+  display: flex;
+}
+
+#lamp-R {
+  margin-left: 16px;
+}
+
+.lamp {
+  width: 106px;
+  height: 150px;
+  position: relative;
+}
+
+.lamp img {
+  position: absolute;
+  bottom: 0;
+}
+
 #name {
   position: relative;
   width: 70px;
@@ -83,11 +113,13 @@ img {
 	text-align: center;
 }
 
-#dec-area-inner {
+#dec-area-inner,
+#dec-area-minus {
   display: flex;
 }
 
-#dec {
+#dec,
+#dec-minus {
   width: 900px;
   font-size: 2em;
   font-weight: bold;
@@ -95,7 +127,12 @@ img {
   color: blue;
 }
 
-#dec-title {
+#dec-minus {
+  color: red;
+}
+
+#dec-title,
+#dec-minus-title {
   width: 70px;
   line-height: 48px;
   text-align: right;
@@ -118,4 +155,4 @@ img {
 
 
 
-/* 修正時刻: Sat Jan 22 20:42:58 2022 */
+/* 修正時刻: Thu 2023/01/26 19:22:512 */
