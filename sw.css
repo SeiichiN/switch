@@ -138,10 +138,30 @@ img {
   text-align: right;
 }
 
+#char {
+  width: 900px;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  color: green;
+}
+
+#char-area-inner {
+  display: flex;
+}
+
+#char-area-title {
+  width: 80px;
+  line-height: 48px;
+  text-align: right;
+}
+
+
 #showBitBtn,
 #showDecBtn,
 #showHexBtn,
-#showMinusBtn {
+#showMinusBtn,
+#showAsciiBtn {
   display: block;
   width: 100px;
   height: 50px;
@@ -157,4 +177,4 @@ img {
 
 
 
-/* 修正時刻: Fri 2023/01/27 05:09:242 */
+/* 修正時刻: Sat 2023/07/22 05:37:422 */

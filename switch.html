@@ -7,7 +7,7 @@
   </head>
   <body>
 	<div id="wrap">
-	  <h1>Switch</h1>
+	  <h1>Switch (8bit=1byte)</h1>
 	  <div id="switch-area">
         <div id="lamp-area">
           <div id="space"></div>
@@ -84,16 +84,24 @@
             <div class="dec" id="dec-minus"></div>
           </div>
         </div>
+        <div id="char-area">
+          <div id="char-area-inner">
+            <div id="char-area-title">ASCII文字</div>
+            <div class="dec" id="char"></div>
+          </div>
+        </div>
 	  </div>
+      
       <div class="btn-area">
 	    <button id="showBitBtn" onclick="toggleBitBtn()"></button>
         <button id="showHexBtn" onclick="toggleHexBtn()"></button>
         <button id="showDecBtn" onclick="toggleDecBtn()"></button>
         <button id="showMinusBtn" onclick="toggleMinusBtn()"></button>
+        <button id="showAsciiBtn" onclick="toggleAsciiBtn()"></button>
       </div>
 	</div>
 	<script src="switch.js"></script>
   </body>
 </html>
 
-<!-- 修正時刻: Fri 2023/01/27 05:09:242 -->
+<!-- 修正時刻: Sat 2023/07/22 05:37:422 -->

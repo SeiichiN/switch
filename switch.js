@@ -1,22 +1,28 @@
 // switch.js
 //
-var sw = document.getElementsByClassName('switch');
-var lamp = document.getElementsByClassName('lamp');
-var bitno = document.getElementsByClassName('bit');
-var bitArea = document.getElementById('bit-area');
-var hexnoL = document.getElementById('hexL');
-var hexnoR = document.getElementById('hexR');
-var hexArea = document.getElementById('hex-area');
-var decno = document.getElementById('dec');
-var minusArea = document.getElementById('minus-area');
-var decMinus = document.getElementById('dec-minus');
-var decArea = document.getElementById('dec-area');
-var showBitBtn = document.getElementById('showBitBtn');
-var showDecBtn = document.getElementById('showDecBtn');
-var showHexBtn = document.getElementById('showHexBtn');
+'use strict';
 
-var setSw = function () {
-	for (var i = 0; i < sw.length; i++) {
+const sw = document.getElementsByClassName('switch');
+const lamp = document.getElementsByClassName('lamp');
+const bitno = document.getElementsByClassName('bit');
+const bitArea = document.getElementById('bit-area');
+const hexnoL = document.getElementById('hexL');
+const hexnoR = document.getElementById('hexR');
+const hexArea = document.getElementById('hex-area');
+const decno = document.getElementById('dec');
+const minusArea = document.getElementById('minus-area');
+const decMinus = document.getElementById('dec-minus');
+const decArea = document.getElementById('dec-area');
+const charArea = document.getElementById('char-area');
+const showBitBtn = document.getElementById('showBitBtn');
+const showDecBtn = document.getElementById('showDecBtn');
+const showHexBtn = document.getElementById('showHexBtn');
+
+
+let decnum;  // 10進数の値
+
+const setSw = function () {
+	for (let i = 0; i < sw.length; i++) {
 		sw[i].innerHTML = '<img src="switch_off.png" alt="">';
 		sw[i].onoff = 'off';
 		sw[i].bit = '0';
@@ -26,8 +32,9 @@ var setSw = function () {
   makeHex();
   makeDec();
   makeDecMinus();
+  makeChar();
 };
-var changeSw = function (t) {
+const changeSw = function (t) {
 	if (sw[t].onoff === 'off') {
 		sw[t].innerHTML = '<img src="switch_on.png" alt="">';
 		sw[t].onoff = 'on';
@@ -45,81 +52,89 @@ var changeSw = function (t) {
   makeHex();
   makeDec();
   makeDecMinus();
+  makeChar();
 };
 
 // 2進数の文字列を16進数の文字列に変換する
 // @param -- sBin string 2進数の文字列
 // @return -- sHex string 16進数の文字列
-var bin2hex = function (sBin) {
-	var number = parseInt(sBin, 2);
-	var sHex = number.toString(16);
-	return sHex;
+const bin2hex = function (sBin) {
+  const number = parseInt(sBin, 2);
+  const sHex = number.toString(16);
+  return sHex;
 };
 
-var makeHex = function () {
-	var strBinL = sw[0].bit + sw[1].bit + sw[2].bit + sw[3].bit;
-	var strBinR = sw[4].bit + sw[5].bit + sw[6].bit + sw[7].bit;
-	var strHexL = bin2hex(strBinL);
-	var strHexR = bin2hex(strBinR);
+const makeHex = function () {
+	const strBinL = sw[0].bit + sw[1].bit + sw[2].bit + sw[3].bit;
+	const strBinR = sw[4].bit + sw[5].bit + sw[6].bit + sw[7].bit;
+	const strHexL = bin2hex(strBinL);
+	const strHexR = bin2hex(strBinR);
 	hexnoL.innerHTML = strHexL;
 	hexnoR.innerHTML = strHexR;
 };
 
-var bin2dec = function (sBin) {
-  var number = parseInt(sBin, 2);
-  var sDec = number.toString(10);
+const bin2dec = function (sBin) {
+  const number = parseInt(sBin, 2);
+  decnum = number;
+  const sDec = number.toString(10);
   return sDec;
 }
 
-var makeDec = function () {
-  var strBin = sw[0].bit + sw[1].bit + sw[2].bit + sw[3].bit +
+const makeDec = function () {
+  const strBin = sw[0].bit + sw[1].bit + sw[2].bit + sw[3].bit +
                sw[4].bit + sw[5].bit + sw[6].bit + sw[7].bit;
-  var strDec = bin2dec(strBin);
+  const strDec = bin2dec(strBin);
   dec.innerHTML = strDec;
 }
 
-var bin2decMinus = function(sBin) {
-  var number = parseInt(sBin, 2) + 1;
-  var sDec = number.toString(10);
+const bin2decMinus = function(sBin) {
+  const number = parseInt(sBin, 2) + 1;
+  const sDec = number.toString(10);
   return sDec;
 }
 
-var rev = function(char) {
+const rev = function(char) {
   if (char === '1') return '0';
   if (char === '0') return '1';
 }
 
-var makeDecMinus = function () {
+const makeDecMinus = function () {
   if (sw[0].bit === '1') {
-    var strBin = rev(sw[0].bit) + rev(sw[1].bit) + rev(sw[2].bit)
+    const strBin = rev(sw[0].bit) + rev(sw[1].bit) + rev(sw[2].bit)
                + rev(sw[3].bit) + rev(sw[4].bit) + rev(sw[5].bit)
                + rev(sw[6].bit) + rev(sw[7].bit);
-    var strDecMinus = '-' + bin2decMinus(strBin);
+    const strDecMinus = '-' + bin2decMinus(strBin);
     console.log("strDecMinus", strDecMinus);
     decMinus.innerHTML = strDecMinus;
   } else {
-    var strBin = sw[0].bit + sw[1].bit + sw[2].bit + sw[3].bit +
+    const strBin = sw[0].bit + sw[1].bit + sw[2].bit + sw[3].bit +
                  sw[4].bit + sw[5].bit + sw[6].bit + sw[7].bit;
-    var strDec = bin2dec(strBin);
+    const strDec = bin2dec(strBin);
     console.log("strDec", strDec);
     decMinus.innerHTML = strDec;
   }
 }
 
-var setShowBitBtn = function () {
+const makeChar = function () {
+  const char = document.getElementById('char');
+  char.textContent = String.fromCharCode(decnum);
+  
+}
+
+const setShowBitBtn = function () {
   showBitBtn.innerHTML = '2進数を表示しない';
   showBitBtn.onoff = 'on';
   bitArea.style.display = 'block';
 };
 
-var delBitBtn = function () {
+const delBitBtn = function () {
   showBitBtn.innerHTML = '2進数を表示する';
   // var bitArea = document.getElementById('bit-area');
   bitArea.style.display = 'none';
   showBitBtn.onoff = 'off';
 };
 
-var toggleBitBtn = function () {
+const toggleBitBtn = function () {
   if (showBitBtn.onoff === 'on') {
 	delBitBtn();
   } else {
@@ -127,20 +142,20 @@ var toggleBitBtn = function () {
   }
 };
 
-var setShowDecBtn = function () {
+const setShowDecBtn = function () {
   showDecBtn.innerHTML = '10進数を表示しない';
   showDecBtn.onoff = 'on';
   decArea.style.display = 'block';
 };
 
-var delDecBtn = function () {
+const delDecBtn = function () {
   showDecBtn.innerHTML = '10進数を表示する';
   // var decArea = document.getElementById('dec-area');
   decArea.style.display = 'none';
   showDecBtn.onoff = 'off';
 };
 
-var toggleDecBtn = function () {
+const toggleDecBtn = function () {
   if (showDecBtn.onoff === 'on') {
 	delDecBtn();
   } else {
@@ -148,19 +163,19 @@ var toggleDecBtn = function () {
   }
 };
 
-var setShowHexBtn = function () {
+const setShowHexBtn = function () {
   showHexBtn.innerHTML = '16進数を表示しない';
   showHexBtn.onoff = 'on';
   hexArea.style.display = 'block';
 }
 
-var delHexBtn = function () {
+const delHexBtn = function () {
   showHexBtn.innerHTML = '16進数を表示する';
   hexArea.style.display = 'none';
   showHexBtn.onoff = 'off';
 }
 
-var toggleHexBtn = function () {
+const toggleHexBtn = function () {
   if (showHexBtn.onoff === 'on') {
     delHexBtn();
   } else {
@@ -168,19 +183,19 @@ var toggleHexBtn = function () {
   }
 }
 
-var setShowMinusBtn = function () {
+const setShowMinusBtn = function () {
   showMinusBtn.innerHTML = 'マイナスを表示しない';
   showMinusBtn.onoff = 'on';
   minusArea.style.display = 'block';
 }
 
-var delMinusBtn = function () {
+const delMinusBtn = function () {
   showMinusBtn.innerHTML = 'マイナスを表示する';
   minusArea.style.display = 'none';
   showMinusBtn.onoff = 'off';
 }
 
-var toggleMinusBtn = function () {
+const toggleMinusBtn = function () {
   if (showMinusBtn.onoff === 'on') {
     delMinusBtn();
   } else {
@@ -188,6 +203,26 @@ var toggleMinusBtn = function () {
   }
 }
 
+const setShowAsciiBtn = function () {
+  showAsciiBtn.innerHTML = 'ASCII文字を表示しない';
+  showAsciiBtn.onoff = 'on';
+  charArea.style.display = 'block';
+}
+
+const delAsciiBtn = function () {
+  showAsciiBtn.innerHTML = 'ASCII文字を表示する';
+  showAsciiBtn.onoff = 'off';
+  charArea.style.display = 'none';
+  
+}
+
+const toggleAsciiBtn = function () {
+  if (showAsciiBtn.onoff === 'on') {
+    delAsciiBtn();
+  } else {
+    setShowAsciiBtn();
+  }
+}
 
 
 window.onload = function () {
@@ -196,6 +231,7 @@ window.onload = function () {
   setShowHexBtn();
   setShowDecBtn();
   setShowMinusBtn();
+  setShowAsciiBtn();
 };
 
-// 修正時刻: Fri 2023/01/27 05:09:242
+// 修正時刻: Sat 2023/07/22 05:37:422
